@@ -1,8 +1,8 @@
 # Comet\_CLI
 
 Required:
-GCC compiler installed on computer
-MacOS
+- GCC compiler installed on computer
+- MacOS
 
 Useage:
 1. Download CLI and place in your directory of choice
