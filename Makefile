@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -I include
 SRC = $(wildcard src/*.c)
 OBJ = $(SRC:src/%.c=build/%.o)
-TARGET = bin/spang
+TARGET = bin/comet
 
 all: $(TARGET)
 
