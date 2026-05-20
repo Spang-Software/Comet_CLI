@@ -2,5 +2,5 @@
 #include "version.h"
 
 void printVersion(void) {
-    printf("0.1.0 (Spang CLI)\n");
+    printf("0.1.2 (Comet CLI)\n");
 }
