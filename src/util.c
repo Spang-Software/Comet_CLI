@@ -7,25 +7,15 @@ float pxToRem(int pxValue) {
     return remValue;
 }
 
-float getClampSlope(float maxViewport, float minViewport, float maxValue, float minValue) {
-    float slope = (maxValue - minValue) / (maxViewport - minViewport);
-    return slope;
-}
-
-float getClampYAxis(float slope, float minValue) {
-    float yAxis = (minValue * -1.0f) * slope + minValue;
-    return yAxis;
-}
-
 char* getClamp(int *maxViewport, int *minViewport, int maxValue, int minValue) {
-    static char output[128];
+    static char output[60];
     float maxValueRem = pxToRem(maxValue);
     float minValueRem = pxToRem(minValue);
     float maxViewportRem = pxToRem(*maxViewport);
     float minViewportRem = pxToRem(*minViewport);
 
-    float slope = getClampSlope(maxViewportRem, minViewportRem, maxValueRem, minValueRem);
-    float yAxis = getClampYAxis(slope, minValueRem);
+    float slope = (maxValueRem - minValueRem) / (maxViewportRem - minViewportRem);
+    float yAxis = (minValueRem * -1.0f) * slope + minValueRem;
 
     snprintf(output, sizeof(output), "clamp(%grem, (%.3frem + %gvw), %grem)", minValueRem, yAxis, roundf(slope * 1000) / 10, maxValueRem);
 

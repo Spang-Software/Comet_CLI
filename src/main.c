@@ -18,7 +18,7 @@ int main() {
     }
 
     // Init
-    printf("Wecome to the Spang CLI:\n");
+    printf("Wecome to the Comet CLI:\n");
     printf("Enter Command (type \"help\" to list commands):\n");
 
 
@@ -31,6 +31,15 @@ int main() {
 
             printf("Enter Max Viewport Width: "); scanf("%d", &maxViewport); 
             printf("Enter Min Viewport Width: "); scanf("%d", &minViewport); 
+
+            if (maxViewport < 100 || maxViewport > 3000  ) {
+                printf("[ERROR] max viewport value (%d) not supported (value must be >= 100 && <= 3000)\n", maxViewport); 
+                continue;
+            } 
+            if (minViewport < 50 || minViewport > 1500  ) {
+                printf("[ERROR] min viewport value (%d) not supported (value must be >= 50 && <= 1500)\n", minViewport); 
+                continue;
+            } 
 
             printSizes(&maxViewport, &minViewport);
             continue;
