@@ -3,9 +3,10 @@
 #include <unistd.h>
 #include <limits.h>
 #include "help.h"
-#include "version.h"
 #include "sizes.h"
 #include "nebula.h"
+
+#define VERSION_NUMBER "0.1.2"
 
 int main() {
 
@@ -74,7 +75,7 @@ int main() {
             continue;
         }
         if (strcmp(command,"version") == 0) {
-            printVersion();
+            printf("%s (Comet CLI)\n", VERSION_NUMBER);
             continue;
         }
         if (strcmp(command,"quit") == 0) {
