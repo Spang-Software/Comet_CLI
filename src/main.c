@@ -5,6 +5,7 @@
 #include "help.h"
 #include "version.h"
 #include "sizes.h"
+#include "nebula.h"
 
 int main() {
 
@@ -44,6 +45,29 @@ int main() {
             printSizes(&maxViewport, &minViewport);
             continue;
 
+        }
+        if (strcmp(command,"nebula") == 0) {
+
+            //clone repo into cwd
+            if (cloneNebula(cwd)) {
+                printf("[ERROR] Error thrown while cloning github repo\n"); 
+                continue;
+            }
+
+            //update min file
+            if (updateNebula(cwd)) {
+                printf("[ERROR] Error thrown while updating min file\n");
+                continue;
+            }
+
+            //clean up cloned folder
+            if (cleanNebula(cwd)) {
+                printf("[ERROR] Error thrown while cleaning up cloned folder\n");
+                continue;
+            }
+
+            printf("[SUCCESS] Nebula CSS has been successfully updated\n");
+            continue;
         }
         if (strcmp(command,"help") == 0) {
             printHelp();
