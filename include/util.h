@@ -1,5 +1,20 @@
 #pragma once
 
+typedef enum {
+    RESET = 0,
+    RED,
+    GREEN,
+    CYAN,
+} terminalColor;
+
+/**
+ * @brief Print function to make coloring text easier.
+ *
+ * @param text Text string to print.
+ * @param color The color code fatched via enum.
+ */
+void print(const char *text, terminalColor color);
+
 /**
  * @brief Converts a pixel value to rem units.
  *

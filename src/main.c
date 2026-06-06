@@ -2,6 +2,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <limits.h>
+#include "util.h"
 #include "help.h"
 #include "sizes.h"
 #include "nebula.h"
@@ -20,7 +21,7 @@ int main() {
     }
 
     // Init
-    printf("Wecome to the Comet CLI:\n");
+    print("Wecome to the Comet CLI\n", CYAN);
     printf("Enter Command (type \"help\" to list commands):\n");
 
 
@@ -67,7 +68,7 @@ int main() {
                 continue;
             }
 
-            printf("[SUCCESS] Nebula CSS has been successfully updated\n");
+            print("[SUCCESS] Nebula CSS has been successfully updated\n", GREEN);
             continue;
         }
         if (strcmp(command,"help") == 0) {
